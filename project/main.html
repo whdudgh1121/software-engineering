@@ -7,83 +7,47 @@
     <title>운동칭구얌</title>
     <link rel="stylesheet" href="./main.css">
 </head>
-<script src="./main.js">
-
-</script>
 
 <body>
     <div class="hero">
-        <div class="container">
-            <h1 class="display-4">운동친구 만들기</h1>
-            <p class="lead">운동 친구를 만들어보세요!</p>
-        </div>
-        
+        <header>
+            <h1 class="display-4">MoveTogether</h1>
+            <div class="select-bar">
+                <span class="selectbutton1" onclick="selectbutton1()">운동플레너</span>
+                <hr>
+                <span class="selectbutton2" onclick="selectbutton2()">운동 파트너 매칭</span>
+                <hr>
+                <span class="selectbutton3" onclick="selectbutton3()">업적</span>
+            </div>
+        </header>
     </div>
-    
+
     <!-- 사이드바와 메인 콘텐츠 -->
     <div class="main-content">
-        <div>
-            <div class="sidebar">
-                <div class="profile-section">
-                    <label for="username">사용자 이름:</label>
-                    <input type="text" id="username" name="username"><br><br>
-                    <label for="password">비밀번호:</label>
-                    <input type="password" id="password" name="password"><br><br>
-                    <button onclick="login()">로그인</button>
-                    
-                    <!-- 사용자 프로필 -->
+        <div class="sidebar">
+            <div class="login-container">
+                <h2>로그인</h2>
+                <form class="login-form">
+                    <div class="input-group">
+                        <input type="text" id="id" name="id" placeholder="아이디" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" id="password" name="password" placeholder="비밀번호" required>
+                    </div>
+                    <button type="submit" class="login-button" onclick="login()">로그인</button>
+                </form>
+                <div class="links">
+                    <a href="#">회원가입</a>
                 </div>
-                <!-- 메뉴 섹션 -->
-                <link rel="stylesheet" href="">
-    
-                <aside class="side-bar">
-                    <section class="side-bar__icon-box">
-                        <section class="side-bar__icon-1">
-                            <div></div>
-                            <div></div>
-                            <div></div>
-                        </section>
-                    </section>
-                    <ul>
-                        <li>
-                            <a href="#"><i class="fa-solid fa-cat"></i> menu1</a>
-                            <ul>
-                                <li><a href="#">text1</a></li>
-                                <li><a href="#">text2</a></li>
-                                <li><a href="#">text3</a></li>
-                                <li><a href="#">text4</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#">menu2</a>
-                            <ul>
-                                <li><a href="#">text1</a></li>
-                                <li><a href="#">text2</a></li>
-                                <li><a href="#">text3</a></li>
-                                <li><a href="#">text4</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#">menu3</a>
-                            <ul>
-                                <li><a href="#">text1</a></li>
-                                <li><a href="#">text2</a></li>
-                                <li><a href="#">text3</a></li>
-                                <li><a href="#">text4</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#">menu4</a>
-                            <ul>
-                                <li><a href="#">text1</a></li>
-                                <li><a href="#">text2</a></li>
-                                <li><a href="#">text3</a></li>
-                                <li><a href="#">text4</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </aside>
             </div>
+
+            
+            <!--<div class="calender-container">
+                  <h2>캘린더</h2>
+                  <form class="calender-form">
+                    
+                  </form>
+            </div> -->
 
         </div>
 
