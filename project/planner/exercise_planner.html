@@ -1,15 +1,43 @@
-<!DOCTYPE html>
-<html lang="ko">
 
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>운동플레너</title>
+    <title>운동 플래너 및 기록</title>
+    <link rel="stylesheet" href="planner_style.css">
+    <link href='https://unpkg.com/fullcalendar@5.10.1/main.min.css' rel='stylesheet' />
 </head>
-
 <body>
-    <h1>운동플레너 페이지</h1>
-    <p>운동플레너 페이지의 콘텐츠가 여기에 나타납니다.</p>
+    <div class="calendar-container">
+        <div id="calendar"></div>
+    </div>
+    <div class="planner-record-container">
+        <div class="display-container">
+            <h2>선택한 날짜의 내용</h2>
+            <div id="display-planner"></div>
+            <div id="display-records"></div>
+        </div>
+        <div class="planner-container">
+            <h2>운동 계획</h2>
+            <form id="planner-form">
+                <input type="text" id="planner-title" placeholder="제목" required>
+                <textarea id="planner-content" placeholder="내용" required></textarea>
+                <button type="submit">저장</button>
+            </form>
+        </div>
+        <div class="record-container">
+            <h2>운동 기록</h2>
+            <form id="record-form">
+                <input type="text" id="exercise-type" placeholder="운동 종류" required>
+                <input type="number" id="exercise-reps" placeholder="횟수" required>
+                <input type="number" id="exercise-weight" placeholder="무게 (kg)" required>
+                <input type="number" id="exercise-sets" placeholder="세트" required>
+                <button type="submit">저장</button>
+            </form>
+        </div>
+    </div>
+    <script src='https://unpkg.com/fullcalendar@5.10.1/main.min.js'></script>
+    <script src="planner_script.js"></script>
 </body>
-
 </html>
