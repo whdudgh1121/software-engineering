@@ -35,16 +35,17 @@ document.addEventListener("DOMContentLoaded", function() {
         document.querySelector(".content-area").innerHTML = "<h2>메인 콘텐츠</h2><p>" + username + "님, 환영합니다!</p>";
     }
 });
-
+function loadContent(page) {
+    document.getElementById('content-frame').src = page;
+}
 function selectbutton1() {
-    window.location.href = "./planner/exercise_planner.html"; // 운동플래너 페이지로 이동
+    loadContent('exercise_planner.html');
 }
 
-// 운동 파트너 매칭과 업적 버튼도 같은 방식으로 구현합니다.
 function selectbutton2() {
-    window.location.href = "exercise_partner_matching.html";
+    loadContent('exercise_partner_matching.html');
 }
 
 function selectbutton3() {
-    window.location.href = "achievement.html";
+    loadContent('achievement.html');
 }
