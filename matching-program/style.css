@@ -1,0 +1,22 @@
+body{
+    /* margin:0;
+    background-image: url("images/~~");
+    background-repeat: no-repeat;
+    background-size: cover; */
+    background-color: gray;
+}
+
+.container{
+    background-color: white;
+    min-height: 80vh;
+}
+
+#my-info img {
+    width: 200px; 
+    height:auto;
+}
+
+.horizontal {
+    display:flex;
+    justify-content:center;
+}
