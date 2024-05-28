@@ -29,13 +29,23 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function fetchDataForDate(date) {
-        fetch(`server/get_data.php?date=${date}`)
-            .then(response => response.json())
+        console.log('Fetching data for date:', date);  // 로그 추가
+        fetch(`http://localhost/server/get_data.php?date=${date}`)
+            .then(response => {
+                console.log('Response status:', response.status);  // 응답 상태 로그 추가
+                return response.json();
+            })
             .then(data => {
+                if (data.error) {
+                    console.error('Server error:', data.error);
+                    throw new Error(data.error);
+                }
+                console.log('Fetched data:', data);  // 가져온 데이터 로그 추가
                 displayPlanner.innerHTML = data.planner ? `
                     <h3>운동 계획</h3>
                     <p><strong>제목:</strong> ${data.planner.title}</p>
                     <p><strong>내용:</strong> ${data.planner.content}</p>
+                    <hr>
                 ` : '<h3>운동 계획</h3><p>데이터 없음</p>';
 
                 displayRecords.innerHTML = data.records.length ? '<h3>운동 기록</h3>' + data.records.map(record => `
@@ -45,6 +55,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     <p><strong>세트:</strong> ${record.sets}</p>
                     <hr>
                 `).join('') : '<h3>운동 기록</h3><p>데이터 없음</p>';
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
             });
     }
 
@@ -55,17 +68,24 @@ document.addEventListener('DOMContentLoaded', function() {
             const title = document.getElementById('planner-title').value;
             const content = document.getElementById('planner-content').value;
 
-            fetch('server/save_planner.php', {
+            fetch('http://localhost/server/save_planner.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({ date: selectedDate, title, content })
-            }).then(response => response.json())
-              .then(data => {
-                  alert('운동 계획 저장 완료!');
-                  fetchDataForDate(selectedDate);
-              });
+            }).then(response => {
+                return response.json();
+            }).then(data => {
+                if (data.error) {
+                    console.error('Server error:', data.error);
+                    throw new Error(data.error);
+                }
+                alert('운동 계획 저장 완료!');
+                fetchDataForDate(selectedDate);
+            }).catch(error => {
+                console.error('Error saving planner:', error);
+            });
         } else {
             alert('날짜를 선택해주세요.');
         }
@@ -80,17 +100,24 @@ document.addEventListener('DOMContentLoaded', function() {
             const weight = document.getElementById('exercise-weight').value;
             const sets = document.getElementById('exercise-sets').value;
 
-            fetch('server/save_record.php', {
+            fetch('http://localhost/server/save_record.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({ date: selectedDate, type, reps, weight, sets })
-            }).then(response => response.json())
-              .then(data => {
-                  alert('운동 기록 저장 완료!');
-                  fetchDataForDate(selectedDate);
-              });
+            }).then(response => {
+                return response.json();
+            }).then(data => {
+                if (data.error) {
+                    console.error('Server error:', data.error);
+                    throw new Error(data.error);
+                }
+                alert('운동 기록 저장 완료!');
+                fetchDataForDate(selectedDate);
+            }).catch(error => {
+                console.error('Error saving record:', error);
+            });
         } else {
             alert('날짜를 선택해주세요.');
         }
