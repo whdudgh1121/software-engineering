@@ -11,45 +11,57 @@
 </head>
 
 <body>
-    <div class="container text-center">
-        <h1>파트너 매칭</h1>
-        <div class="row" id="row1">
-          <div class="col" id="col1">
-            <section class="container" id="my-info">
-                
+    <div id="main" class="container text-center">
+        <h1 id="title" class="text-center">Find Your Partner!</h1>
+        <div class="row match-content border" id="row1">
+            
+            <section class="col-4 container border" id="my-info"> <!--내 정보 출력-->
+                <!-- <img src="images/user.png" class="person-image" alt="user" id="user"/>
+                <div>윤성빈</div>
+                <div>010-5264-3316</div>
+                <div>rarely</div>
+                <div>intermediate</div> -->
             </section>
-          </div>
-          <div class="col" id="col2">
-            <section class="info-input">
-                <!-- css로 표 안에 넣어서 글자, 입력칸 같은 row에 넣기 -->
-                <div class="horizontal">
+           
+            <section class="col-4 info-input border"> <!--정보 입력칸-->
+                <div class="info-content horizontal">
                     <div>성함 입력:</div> &nbsp;&nbsp;
                     <input type="text" class="input-form" id="name-input" placeholder="성함 입력" />
                 </div>
-                <div class="horizontal">
+                <div class="info-content horizontal">
                     <div>연락처 입력: </div> &nbsp;&nbsp;
                     <input type="text" class="input-form" id="contact-input" maxlength="11" placeholder="'-'없이 입력" />
                 </div>
-                <div>운동 횟수(일주일에):</div>
-                <input type="checkbox" class="workout-frequency" id="rarely" onclick="getFrequencyCheckboxValue1()" />1~2회
-                <input type="checkbox" class="workout-frequency" id="normal" onclick="getFrequencyCheckboxValue2()" />3~4회
-                <input type="checkbox" class="workout-frequency" id="frequent" onclick="getFrequencyCheckboxValue3()" />거의 매일
-    
-                <div>운동 경력:</div>
-                <input type="checkbox" class="workout-history" id="beginner" onclick="getHistoryCheckboxValue1()" />1년 이하
-                <input type="checkbox" class="workout-history" id="intermediate" onclick="getHistoryCheckboxValue2()" />1~3년
-                <input type="checkbox" class="workout-history" id="advanced" onclick="getHistoryCheckboxValue3()" />3년 이상
-    
+                <div class="info-content">
+                    <div>운동 횟수(일주일에):</div>
+                    <input type="checkbox" class="workout-frequency" id="rarely" onclick="getFrequencyCheckboxValue1()" />1~2회
+                    <input type="checkbox" class="workout-frequency" id="normal" onclick="getFrequencyCheckboxValue2()" />3~4회
+                    <input type="checkbox" class="workout-frequency" id="frequent" onclick="getFrequencyCheckboxValue3()" />거의 매일
+                </div>
+                <div class="info-content">
+                    <div>운동 경력:</div>
+                    <input type="checkbox" class="workout-history" id="beginner" onclick="getHistoryCheckboxValue1()" />1년 이하
+                    <input type="checkbox" class="workout-history" id="intermediate" onclick="getHistoryCheckboxValue2()" />1~3년
+                    <input type="checkbox" class="workout-history" id="advanced" onclick="getHistoryCheckboxValue3()" />3년 이상
+                </div>
                 <br/>
-                <button class="all-input-button" onclick="submit()">입력</button>
+                <button id="all-input-button" class="btn btn-secondary" onclick="submit()">입력</button>
             </section>
-          </div>
-          <div class="col" id="col3">
-            <section id="partner-info">
-                partner info area
+            
+            <section class="col-4" id="partner-info"> <!--파트너 정보 출력-->
+                <!-- <img src="images/partnerFemale.png" class="person-image" alt="partner" id="partner"/>
+                <div>김연아</div>
+                <div>010-1009-XXXX</div>
+                <div>rarely</div>
+                <div>intermediate</div> -->
             </section>
-          </div>
         </div>
+
+        <div>
+            <button id="match-button" class="btn btn-success" onclick="matchPartner()">매칭 시작!</button>
+        </div>
+
+
     </div> 
 
 

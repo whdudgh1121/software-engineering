@@ -7,6 +7,19 @@
 // 매칭 완성시 매칭 성공!! 문구 출력
 //(부가) 리셋버튼-> 누르면 정보 초기화, 출력됬던 정보들 초기화
 
+//파트너 정보들(성함, 연락처, frequency, history)
+// 김연아, 010-1009-XXXX, rarely, beginner
+// 김종국, 010-5723-XXXX, rarely, intermediate
+// 이상화, 010-4254-XXXX, rarely, advanced
+// 박재범, 010-7588-XXXX, normal, beginner
+// 김춘리, 010-2215-XXXX, normal, intermediate
+// 박태환, 010-9277-XXXX, normal, advanced
+// 송아름, 010-5001-XXXX, frequent, beginner
+// 윤성빈, 010-1623-XXXX, frequent, intermediate
+ 
+
+// 추성훈, 010-1789-XXXX, frequent, advanced
+
 const frequency1 = document.querySelector('#rarely');
 const frequency2 = document.querySelector('#normal');
 const frequency3 = document.querySelector('#frequent');
@@ -19,31 +32,9 @@ const history3 = document.querySelector('#advanced');
 let nameInput = document.getElementById("name-input");
 let contactInput = document.getElementById("contact-input");
 
+let userInfo;
+let partnerInfoList=[]
 
-
-
-
-submit=()=>{
-    let userInfo = {        
-        nameContent: nameInput.value,
-        contactContent: contactInput.value,
-        frequencyContent: getFrequencyCheckboxId(),
-        historyContent: getHistoryCheckboxId(),
-    }
-    console.log(userInfo);
-    renderUser(userInfo);
-}
-
-renderUser=(userInfo)=>{
-    userHTML = '';
-    userHTML += 
-    `<img src="images/user.png" alt="user" id="user"/>
-    <div>${userInfo.nameContent}</div>
-    <div>${userInfo.contactContent}</div>
-    <div>${userInfo.frequencyContent}</div>
-    <div>${userInfo.historyContent}</div>`
-    document.getElementById("my-info").innerHTML = userHTML;
-}
 
 getFrequencyCheckboxId=()=>{
     let frequencyResult = '';
@@ -64,6 +55,7 @@ getFrequencyCheckboxValue1=()=>{
         frequency2.checked = false;
         frequency3.checked = false;
     }
+    console.log(userInfo)
 }
 
 getFrequencyCheckboxValue2=()=>{
@@ -116,4 +108,80 @@ getHistoryCheckboxValue3=()=>{
 }
 
 
+
+renderUser=(userInfo)=>{
+    userHTML = '';
+    userHTML += 
+    `<img src="images/user.png" class="person-image" alt="user" id="user"/>
+    <div>${userInfo.userName}</div>
+    <div>${userInfo.userContact}</div>
+    <div>${userInfo.userFrequency}</div>
+    <div>${userInfo.userHistory}</div>`
+    document.getElementById("my-info").innerHTML = userHTML;
+}
+
+submit=()=>{
+    userInfo = {        
+        userName: nameInput.value,
+        userContact: contactInput.value,
+        userFrequency: getFrequencyCheckboxId(),
+        userHistory: getHistoryCheckboxId(),
+    }
+    renderUser(userInfo);
+}
+
+makePartnerData = (name,gender,contact,frequency, history) => {
+    let partnerInfo= {
+        partnerName: name,
+        partnerGender: gender,
+        partnerContact: contact,
+        partnerFrequency: frequency,
+        partnerHistory: history,
+    }
+    partnerInfoList.push(partnerInfo);
+} 
+
+makePartnerList = () => {
+    makePartnerData("김연아", "Female", "010-1009-XXXX", "rarely", "beginner");
+    makePartnerData("김종국", "Male", "010-5723-XXXX", "rarely", "intermediate");
+    makePartnerData("이상화", "Female", "010-4254-XXXX", "rarely", "advanced");
+    makePartnerData("박재범", "Male", "010-7588-XXXX", "normal", "beginner");
+    makePartnerData("김춘리", "Female", "010-2215-XXXX", "normal", "intermediate");
+    makePartnerData("박태환", "Male", "010-9277-XXXX", "normal", "advanced");
+    makePartnerData("송아름", "Female", "010-5001-XXXX", "frequent", "beginner");
+    makePartnerData("윤성빈", "Male", "010-1623-XXXX", "frequent", "intermediate");
+}
+
+matchPartner = () => {
+    makePartnerList();
+    console.log("userInfo", userInfo) //유저 정보가 안 불러와짐(저장이 안됨)
+    let matchedPartnerList = partnerInfoList.filter((partner)=>{
+        matches = (partner.partnerFrequency == userInfo.userFrequency && partner.partnerHistory == userInfo.userHistory)
+        return matches;
+    })
+    matchedPartner=matchedPartnerList[0];
+    console.log(matchedPartner);
+    //try-catch여기에 입력하기
+    renderPartner();
+}
+
+renderPartner =  () => {
+    const partnerHTML =
+    `<img src="images/partner${matchedPartner.partnerGender}.png" class="person-image" alt="partner" id="partner"/>
+    <div>${matchedPartner.partnerName}</div>
+    <div>${matchedPartner.partnerContact}</div>
+    <div>${matchedPartner.partnerFrequency}</div>
+    <div>${matchedPartner.partnerHistory}</div>`
+    document.getElementById("partner-info").innerHTML = partnerHTML;
+}
+
+
+// 김연아, "010-1009-XXXX", rarely, beginner
+// 김종국, "010-5723-XXXX", rarely, intermediate
+// 이상화, "010-4254-XXXX", rarely, advanced
+// 박재범, "010-7588-XXXX", normal, beginner
+// 김춘리, "010-2215-XXXX", normal, intermediate
+// 박태환, "010-9277-XXXX", normal, advanced
+// 송아름, "010-5001-XXXX", frequent, beginner
+// 윤성빈, "010-1623-XXXX", frequent, intermediate
 
