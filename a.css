@@ -1,0 +1,46 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+}
+
+.achievement-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+    justify-items: center;
+    margin: 20px;
+}
+
+.achievement {
+    width: 200px;
+    height: 200px;
+    background-color: grey;
+    border: 2px solid black;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.unlocked {
+    background-color: none;
+}
+
+/* Specific image for each achievement */
+#achievement-1.unlocked { background-image: url('img/start.png'); }
+#achievement-2.unlocked { background-image: url('img/benchpress1.png'); }
+#achievement-3.unlocked { background-image: url('img/benchpress2.png'); }
+#achievement-4.unlocked { background-image: url('img/benchpress3.png'); }
+#achievement-5.unlocked { background-image: url('img/deadlift1.png'); }
+#achievement-6.unlocked { background-image: url('img/deadlift2.png'); }
+#achievement-7.unlocked { background-image: url('img/deadlift3.png'); }
+#achievement-8.unlocked { background-image: url('img/squat1.png'); }
+#achievement-9.unlocked { background-image: url('img/squat2.png'); }
+#achievement-10.unlocked { background-image: url('img/squat3.png'); }
+#achievement-11.unlocked { background-image: url('img/total100.png'); }
+#achievement-12.unlocked { background-image: url('img/total200.png'); }
+#achievement-13.unlocked { background-image: url('img/total300.png'); }
+#achievement-14.unlocked { background-image: url('img/total400.png'); }
+#achievement-15.unlocked { background-image: url('img/total500.png'); }
+#achievement-16.unlocked { background-image: url('img/3days.png'); }
+#achievement-17.unlocked { background-image: url('img/matching.png'); }
+#achievement-18.unlocked { background-image: url('img/1month.png'); }
