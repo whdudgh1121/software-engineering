@@ -1,0 +1,95 @@
+@font-face{
+    font-family: '둥글';
+    font-style: 'normal';
+    font-weight: 400;
+    src: url('KCC-Ganpan.woff');
+}
+
+body{
+    /* margin:0;
+    background-image: url("images/~~");
+    background-repeat: no-repeat;
+    background-size: cover; */
+    display:flex;
+    background-image: url(images/fitnesscenter3.png);
+    /*background-image: url('https://media4.giphy.com/media/zKqcOzifkPYYvHib5H/giphy.gif?cid=790b7611zmiyt2t64rmu9p5geqecpgf0zazb6m68wewdbap4&ep=v1_gifs_search&rid=giphy.gif&ct=g');
+    background-image: url('https://gifdb.com/images/high/gym-498-x-498-gif-m0n4em4q5lqgw8aw.gif');*/
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-color: darkgray;
+    /* background-blend-mode: lighten; */
+    fill-opacity: 0;
+    font-family: "둥글";
+}
+
+
+#main{
+    background-color: rgba(247, 243, 242, 0.7);
+    min-height: 85vh;
+    margin-top: 3em;
+    border: 10px solid white;
+    border-radius: 20px;
+    text-align: center;
+
+}
+
+#title {
+    font-size: 2.5vw;
+    font-weight: bold;
+    color: black;
+    margin-top: 1.5em;
+  }
+
+.match-content{
+    margin-top:3em;
+}
+
+.info-content{
+    margin-top:1em;
+}
+
+.input-form{
+    border-radius:50px;
+    text-align: center;
+}
+
+input[type="checkbox"]{
+    margin-left: 5px;
+    margin-right:5px;
+}
+
+#all-input-button {
+    margin-bottom: 15px;
+}
+
+::placeholder{
+    text-align: center;
+}
+
+#match-button {
+    height: 60px;
+    width: 160px;
+    border-radius: 20px;
+    font-size: 20pt;
+    margin-top: 1.5em;
+}
+
+/* .button-style {
+    height: 80px;
+    width: 150px;
+    margin-top: 5px;
+    border-radius: 50px;
+    font-size: 30pt;
+    font-weight: bold;
+  } */
+
+.person-image {
+    
+    max-width: 200px; 
+    height:auto;
+}
+
+.horizontal {
+    display:flex;
+    justify-content:center;
+}
