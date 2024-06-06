@@ -14,7 +14,7 @@
         <header>
             <h1 class="display-4">MoveTogether</h1>
             <div class="select-bar">
-                <span class="selectbutton1" onclick="selectbutton1()">운동플레너</span>
+                <span class="selectbutton1" onclick="selectbutton1()">운동플래너</span>
                 <hr>
                 <span class="selectbutton2" onclick="selectbutton2()">운동 파트너 매칭</span>
                 <hr>
@@ -40,14 +40,33 @@
                 <div class="links">
                     <a href="#">회원가입</a>
                 </div>
+                <br><br><br><br>
+                <div class="calendar-container">
+                    <h2>출석</h2>
+                    <table id="calendar">
+                        <thead>
+                            <tr>
+                                <th>일</th>
+                                <th>월</th>
+                                <th>화</th>
+                                <th>수</th>
+                                <th>목</th>
+                                <th>금</th>
+                                <th>토</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table><br>
+                    <button class="attendance-button" onclick="markAttendance()">출석 체크</button>
+                </div>
             </div>
+            
             <!-- 환영 메시지 및 로그아웃 버튼 -->
             <div class="welcome-container" style="display:none;">
                 <h2 id="welcome-message"></h2>
                 <button type="button" class="logout-button" onclick="logout()">로그아웃</button>
             </div>
         </div>
-
         <!-- 메인 콘텐츠 공간 -->
         <div class="content-area">
             <iframe id="content-frame" src="" width="100%" height="600px" frameborder="0"></iframe>
@@ -112,6 +131,62 @@
         function selectbutton3() {
             loadContent('achievement.html');
         }
+
+        function generateCalendar() {
+        const calendarBody = document.querySelector('#calendar tbody');
+        calendarBody.innerHTML = ''; 
+        
+        const today = new Date();
+        const year = today.getFullYear();
+        const month = today.getMonth();
+        
+        const firstDay = new Date(year, month, 1).getDay();
+        const lastDate = new Date(year, month + 1, 0).getDate();
+        
+        let date = 1;
+        for (let i = 0; i < 6; i++) {
+            const row = document.createElement('tr');
+            
+            for (let j = 0; j < 7; j++) {
+                const cell = document.createElement('td');
+                if (i === 0 && j < firstDay) {
+                    row.appendChild(cell);
+                } else if (date > lastDate) {
+                    break;
+                } else {
+                    const dateElement = document.createElement('div');
+                    dateElement.classList.add('date');
+                    dateElement.innerText = date;
+                    
+                    cell.id = `date-${date}`;
+                    cell.appendChild(dateElement);
+                    row.appendChild(cell);
+                    date++;
+                }
+            }
+            
+            calendarBody.appendChild(row);
+            
+            if (date > lastDate) {
+                break;
+            }
+        }
+    }
+    function markAttendance() {
+        const today = new Date();
+        const date = today.getDate();
+        const cell = document.getElementById(`date-${date}`);
+        
+        if (cell) {
+            if (!cell.querySelector('.stamp')) {
+                const stamp = document.createElement('img');
+                stamp.classList.add('stamp');
+                stamp.src = 'stamp.png';
+                cell.appendChild(stamp);
+            }
+        }
+    }
+    window.onload = generateCalendar;
     </script>
 </body>
 

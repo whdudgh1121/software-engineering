@@ -4,11 +4,11 @@ body {
   padding: 0;
   background-color: #f0f0f0;
   text-align: center;
+  overflow: hidden;
 }
 
 .hero {
-  background-color: #00b9d1;
-  color: white;
+  background: linear-gradient(rgba(255, 255, 255, 0.3),rgba(255, 255, 255, 0.3)),  url(./gym.jpg);
   padding: 10px;
   text-align: center;
   justify-content: center; /* 요소 간 간격 설정 */
@@ -20,7 +20,7 @@ body {
 .display-4{
   height: 75px;
   padding: 1rem;
-  color: white;
+  color: #003399;
   background: 00b9d1;
   font-weight: bold;
   font-size: 60px;
@@ -28,7 +28,7 @@ body {
 
 .select-bar{
   display: flex;
-  color: white;
+  color: #003399;
   font-size: 30px;
   text-align: center;
   padding: 10px;
@@ -69,8 +69,9 @@ body {
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   width: 100%;
-  height: 25%;
+  height: 20%;
 }
+
 .welcome-container{
   background-color: #fff;
   padding: 20px;
@@ -109,7 +110,7 @@ body {
 }
 
 .login-button:hover {
-  background-color: #00b9d1;
+  background-color: #3399CC;
 }
 
 .links {
@@ -131,6 +132,8 @@ body {
   background-color: white;
   padding: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow-y: scroll;
+  height: 100vh;
 }
 
 .selectbutton1{
@@ -140,4 +143,53 @@ body {
 .selectbutton1:hover{
   font-size: 35px;
   background-color: #109eb1;
+}
+
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th, td {
+  border: 1px solid #ddd;
+  text-align: center;
+  padding: 10px;
+  position: relative;
+  width: 5px;
+  height: 5px;
+}
+th {
+  background-color: Lightgray;
+  font-size: 0.8em;
+
+}
+.date {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  font-size: 0.8em;
+}
+.stamp {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+}
+.attendance-button {
+  width: 100%;
+  padding: 8px;
+  background-color: #00b9d1;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+
+  
+}
+.attendance-button:hover {
+  background-color: #3399cc;
+  color: white;
 }
