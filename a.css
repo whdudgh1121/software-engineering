@@ -33,9 +33,9 @@ body {
 #achievement-5.unlocked { background-image: url('img/deadlift1.png'); }
 #achievement-6.unlocked { background-image: url('img/deadlift2.png'); }
 #achievement-7.unlocked { background-image: url('img/deadlift3.png'); }
-#achievement-8.unlocked { background-image: url('img/squat1.png'); }
-#achievement-9.unlocked { background-image: url('img/squat2.png'); }
-#achievement-10.unlocked { background-image: url('img/squat3.png'); }
+#achievement-8.unlocked { background-image: url('img/s1.png'); }
+#achievement-9.unlocked { background-image: url('img/s2.png'); }
+#achievement-10.unlocked { background-image: url('img/s3.png'); }
 #achievement-11.unlocked { background-image: url('img/total100.png'); }
 #achievement-12.unlocked { background-image: url('img/total200.png'); }
 #achievement-13.unlocked { background-image: url('img/total300.png'); }
@@ -44,3 +44,4 @@ body {
 #achievement-16.unlocked { background-image: url('img/3days.png'); }
 #achievement-17.unlocked { background-image: url('img/matching.png'); }
 #achievement-18.unlocked { background-image: url('img/1month.png'); }
+
