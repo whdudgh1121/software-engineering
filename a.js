@@ -24,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function() {
         benchPress: 80,
         deadlift: 90,
         squat: 100,
-        total: 0,
+        total: 270,
         attendance: 5,
         matching: true
     };
